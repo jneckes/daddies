@@ -31,17 +31,18 @@ const MEMBERS = {
   'josh-guitar': {
     stamp: 'DADDY DOSSIER — No. 04',
     name: 'JOSH',
-    role: 'GUITAR · TONE ENTHUSIAST',
+    role: 'GUITAR · VOCALS',
     ph: 'J',
     img: 'assets/img/daddies/josh-guitar.jpg',
     stats: {
+      'Turf': 'Valley Village. “The Village.”',
       'Weapon': 'A guitar he describes as “an investment”',
-      'Signature move': 'The squat-and-strum',
-      'Pre-show ritual': 'Checking the trailer hitch twice',
-      'Listens to': 'One podcast, all the way through',
+      'Signature move': 'Adjusting the levels',
+      'Pre-show ritual': 'Believing, this time, in the Floyd Rose',
+      'Listens to': 'Shred metal, “for the harmonic motion”',
       'Dad joke rating': '11/10, unfortunately',
     },
-    bio: 'Josh plays lead the way all great Los Angeles institutions operate: loudly, in a garage, against several people’s better judgment. He books the gigs, checks the hitch twice, and believes — sincerely, annoyingly — in the encore.',
+    bio: 'Josh plays lead the way all great Los Angeles institutions operate: loudly, in a garage, against several people’s better judgment. He shreds, he whammies, he books the gigs, and he believes — sincerely, annoyingly — in the encore.',
   },
   'josh-drums': {
     stamp: 'DADDY DOSSIER — No. 02',
@@ -50,6 +51,7 @@ const MEMBERS = {
     ph: 'J',
     img: 'assets/img/daddies/josh-drums.jpg',
     stats: {
+      'Turf': 'Mid-City — The Holy Land',
       'Weapon': 'A kit older than the internet',
       'Head mic': 'Phil Collins–style. Owned, not rented.',
       'Signature move': 'The fill you didn’t ask for',
@@ -65,6 +67,7 @@ const MEMBERS = {
     ph: 'A',
     img: 'assets/img/daddies/alex-bass.jpg',
     stats: {
+      'Turf': 'Encino. He’s the mayor there.',
       'Weapon': 'Four strings, zero wasted notes',
       'Aesthetic': 'Jaco Pastorius, with a mortgage',
       'Uniform': 'Cargo shorts. Every pocket earns its keep.',
@@ -80,6 +83,7 @@ const MEMBERS = {
     ph: 'S',
     img: 'assets/img/daddies/seth-guitar.jpg',
     stats: {
+      'Turf': 'Sunset',
       'Weapon': 'A pedalboard with its own zip code',
       'Also': 'Sings. Really sings.',
       'Face of the band?': 'Many people are wondering',
@@ -116,7 +120,7 @@ const MEMBERS = {
       'Energy': 'The good kind of too much',
       'Aux privileges': 'Permanent',
     },
-    bio: 'Erin makes the whole room believe they’re in the band. Soaring lead vocals, hype, and the uncanny ability to find the one person not dancing and fix that within a verse.',
+    bio: 'Erin makes the whole room believe they’re in the band. Soaring lead vocals, epic banter, and the uncanny ability to find the one person not dancing and fix that within a verse.',
   },
   'brian': {
     stamp: 'BIG DADDY DOSSIER — No. 001',
