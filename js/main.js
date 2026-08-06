@@ -8,7 +8,7 @@
    -------------------------------------------------------------------------- */
 const CONFIG = {
   // Where booking emails go. Update this and the mailto links in index.html.
-  bookingEmail: 'josh.neckes@gmail.com',
+  bookingEmail: 'thedaddiesforever@gmail.com',
 
   // Prefer YouTube over local files? Paste video IDs here (the part after
   // watch?v=). Leave empty to use local mp4s in assets/video/.
