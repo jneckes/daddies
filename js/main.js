@@ -7,7 +7,8 @@
    CONFIG — the one place to wire up real stuff.
    -------------------------------------------------------------------------- */
 const CONFIG = {
-  // Where booking emails go. Update this and the mailto links in index.html.
+  // Where booking emails go. Update this, the mailto links, and the
+  // form action in index.html.
   bookingEmail: 'thedaddiesforever@gmail.com',
 
   // Prefer YouTube over local files? Paste video IDs here (the part after
@@ -387,14 +388,13 @@ $$('.hero-title .t-line span').forEach((el, i) => {
   dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
 })();
 
-/* ---------- booking form → composes an email ---------- */
+/* ---------- booking form → delivers via FormSubmit, mailto as backup ---------- */
 (function booking() {
   const form = $('#book-form');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const v = (id) => $(id).value.trim();
-    const subject = `BOOKING: ${v('#bf-type')}${v('#bf-date') ? ' — ' + v('#bf-date') : ''}`;
+  const v = (id) => $(id).value.trim();
+  const subjectLine = () => `BOOKING: ${v('#bf-type')}${v('#bf-date') ? ' — ' + v('#bf-date') : ''}`;
+  const mailtoFallback = () => {
     const body = [
       `Name: ${v('#bf-name')}`,
       `Email: ${v('#bf-email')}`,
@@ -405,7 +405,45 @@ $$('.hero-title .t-line span').forEach((el, i) => {
       '',
       '— sent from thedaddies dot com, obviously',
     ].join('\n');
-    location.href = `mailto:${CONFIG.bookingEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    location.href = `mailto:${CONFIG.bookingEmail}?subject=${encodeURIComponent(subjectLine())}&body=${encodeURIComponent(body)}`;
+  };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = $('button[type="submit"]', form);
+    const note = $('.form-note', form);
+    const label = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'SENDING…';
+    const abort = new AbortController();
+    const timer = setTimeout(() => abort.abort(), 10000);
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${CONFIG.bookingEmail}`, {
+        method: 'POST',
+        signal: abort.signal,
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: subjectLine(),
+          _template: 'table',
+          _replyto: v('#bf-email'),
+          _honey: $('input[name="_honey"]', form)?.value || '',
+          'Name': v('#bf-name'),
+          'Email': v('#bf-email'),
+          'Event date': v('#bf-date') || 'TBD',
+          'Event type': v('#bf-type'),
+          'Message': v('#bf-msg') || '(They left this blank. Bold.)',
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error('delivery declined');
+      form.querySelectorAll('.ff, .ff-row, .btn').forEach((el) => el.remove());
+      note.textContent = 'BAT SIGNAL RECEIVED. we reply faster than your dad texts back — so: same day.';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = label;
+      mailtoFallback();
+    } finally {
+      clearTimeout(timer);
+    }
   });
 })();
 
