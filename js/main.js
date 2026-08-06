@@ -267,6 +267,13 @@ $$('.hero-title .t-line span').forEach((el, i) => {
   const EXTS = ['jpg', 'jpeg', 'png', 'webp', 'JPG'];
   const MAX = 24;
 
+  // Per-shot crop focus, keyed by filename so deck order doesn't matter.
+  // Anything not listed uses the stylesheet default (50% 25%).
+  const FOCUS = {
+    'slide-01.jpg': '50% 10%',
+    'slide-02.jpg': '50% 10%',
+  };
+
   const probe = (src) => new Promise((resolve) => {
     const img = new Image();
     img.onload = () => resolve(src);
@@ -308,6 +315,8 @@ $$('.hero-title .t-line span').forEach((el, i) => {
       img.alt = `The Daddies, the full spread — photo ${i + 1} of ${srcs.length}`;
       img.decoding = 'async';
       img.draggable = false;
+      const focus = FOCUS[src.split('/').pop()];
+      if (focus) img.style.objectPosition = focus;
       track.append(img);
     });
 
