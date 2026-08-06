@@ -256,6 +256,120 @@ $$('.hero-title .t-line span').forEach((el, i) => {
   });
 })();
 
+/* ---------- band slider: the full spread, plural ---------- */
+(function bandSlider() {
+  const fig = $('.band-photo');
+  if (!fig) return;
+
+  // Drop zone: assets/img/band/slides/slide-01.jpg, slide-02.jpg, …
+  // Numbered consecutively — the first gap ends the deck. full-band.jpg opens.
+  const DIR = 'assets/img/band/slides/';
+  const EXTS = ['jpg', 'jpeg', 'png', 'webp', 'JPG'];
+  const MAX = 24;
+
+  const probe = (src) => new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(src);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+
+  const findSlides = async () => {
+    const srcs = [];
+    if (await probe('assets/img/band/full-band.jpg')) srcs.push('assets/img/band/full-band.jpg');
+    for (let i = 1; i <= MAX; i += 1) {
+      const n = String(i).padStart(2, '0');
+      let hit = null;
+      for (const ext of EXTS) {
+        hit = await probe(`${DIR}slide-${n}.${ext}`);
+        if (hit) break;
+      }
+      if (!hit) break;
+      srcs.push(hit);
+    }
+    return srcs;
+  };
+
+  findSlides().then((srcs) => {
+    if (srcs.length < 2) return; // one photo (or none) — the plain figure handles it
+
+    $('img', fig)?.remove();
+    fig.classList.remove('missing');
+    fig.classList.add('sliding');
+    fig.setAttribute('role', 'group');
+    fig.setAttribute('aria-roledescription', 'carousel');
+    fig.setAttribute('aria-label', 'The Daddies, together');
+
+    const track = document.createElement('div');
+    track.className = 'bs-track';
+    srcs.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `The Daddies, the full spread — photo ${i + 1} of ${srcs.length}`;
+      img.decoding = 'async';
+      img.draggable = false;
+      track.append(img);
+    });
+
+    const mkBtn = (dir, label, glyph) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'bs-btn';
+      b.dataset.dir = dir;
+      b.setAttribute('aria-label', label);
+      b.textContent = glyph;
+      return b;
+    };
+    const count = document.createElement('span');
+    count.className = 'bs-count mono';
+    count.setAttribute('aria-live', 'polite');
+    const nav = document.createElement('div');
+    nav.className = 'bs-nav';
+    nav.append(mkBtn(-1, 'Previous photo', '←'), count, mkBtn(1, 'Next photo', '→'));
+
+    fig.prepend(track);
+    track.after(nav);
+
+    let at = 0;
+    const show = (i) => {
+      at = (i + srcs.length) % srcs.length;
+      track.style.transform = `translateX(-${at * 100}%)`;
+      count.textContent = `${String(at + 1).padStart(2, '0')} / ${String(srcs.length).padStart(2, '0')}`;
+    };
+    show(0);
+
+    // Gentle auto-advance: skipped for reduced motion, retired on first touch.
+    let timer = null;
+    let retired = reducedMotion;
+    const play = () => { if (!retired && !timer) timer = setInterval(() => show(at + 1), 5500); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const step = (dir) => { retired = true; stop(); show(at + dir); };
+
+    nav.addEventListener('click', (e) => {
+      const b = e.target.closest('.bs-btn');
+      if (b) step(Number(b.dataset.dir));
+    });
+    fig.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+    });
+
+    let x0 = null;
+    fig.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+    fig.addEventListener('pointerup', (e) => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    });
+    fig.addEventListener('mouseenter', stop);
+    fig.addEventListener('mouseleave', play);
+
+    const io = new IntersectionObserver(([en]) => (en.isIntersecting ? play() : stop()));
+    io.observe(fig);
+  });
+})();
+
 /* ---------- audio: custom players, graceful when tapes are pending ---------- */
 (function audioPlayers() {
   const fmt = (s) => {

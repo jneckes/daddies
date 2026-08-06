@@ -31,9 +31,16 @@ no code changes needed.
 | Amy (vocals) | `assets/img/mommies/amy.jpg` |
 | Erin (vocals) | `assets/img/mommies/erin.jpg` |
 | Brian Justin Crum | `assets/img/bigdaddies/brian-justin-crum.jpg` |
-| Full band (wide shot) | `assets/img/band/full-band.jpg` |
+| Full band (opening slide) | `assets/img/band/full-band.jpg` |
+| Band slider (more wide shots) | `assets/img/band/slides/slide-01.jpg`, `slide-02.jpg`, … |
 | Video poster (Milwaukee) | `assets/img/band/milwaukee-poster.jpg` |
 | Social share image | `assets/img/band/og.jpg` (1200×630) |
+
+The big band photo in the Legend section becomes a **slider** (arrows, counter,
+gentle auto-advance) as soon as two or more shots exist. `full-band.jpg` always
+opens; numbered slides follow. Number them consecutively — `slide-01`,
+`slide-02`, … — the first gap ends the deck. `.jpeg`, `.png`, and `.webp` work
+too. Wide landscape crops look best (the frame is 21:9).
 
 ### Video
 
