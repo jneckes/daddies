@@ -13,8 +13,12 @@ const CONFIG = {
   // Prefer YouTube over local files? Paste video IDs here (the part after
   // watch?v=). Leave empty to use local mp4s in assets/video/.
   youtube: {
-    featured: '',            // the Milwaukee PrideFest headline set
-    clips: ['', '', ''],     // the three vault clips, in order
+    featured: '5SAQ1k317fE', // BJC + The Daddies — “Uninvited” (Milwaukee PrideFest)
+    clips: [
+      'KNCp4jfxLnQ',         // BJC + The Daddies — “Into You”
+      '4TqeaLThNW0',         // BJC + The Daddies — “So Emotional”
+      'c-L1yE87yE0',         // BJC + The Daddies — “Crazy”
+    ],
   },
 };
 
@@ -218,10 +222,10 @@ $$('.hero-title .t-line span').forEach((el, i) => {
 
 /* ---------- video: optional YouTube swap ---------- */
 (function video() {
-  const embed = (id) => {
+  const embed = (id, title) => {
     const frame = document.createElement('iframe');
     frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
-    frame.title = 'The Daddies — live';
+    frame.title = title || 'The Daddies — live';
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     frame.allowFullscreen = true;
     frame.style.cssText = 'width:100%;aspect-ratio:16/9;border:0;display:block;';
@@ -230,7 +234,7 @@ $$('.hero-title .t-line span').forEach((el, i) => {
   if (CONFIG.youtube.featured) {
     const fig = $('#feature-video');
     fig.classList.remove('missing');
-    fig.querySelector('video').replaceWith(embed(CONFIG.youtube.featured));
+    fig.querySelector('video').replaceWith(embed(CONFIG.youtube.featured, $('figcaption', fig)?.textContent.trim()));
     $('.video-ph', fig)?.remove();
   }
   CONFIG.youtube.clips.forEach((id, i) => {
@@ -238,7 +242,7 @@ $$('.hero-title .t-line span').forEach((el, i) => {
     const clip = $(`.clip[data-clip="${i}"]`);
     if (!clip) return;
     clip.classList.remove('missing');
-    clip.querySelector('video').replaceWith(embed(id));
+    clip.querySelector('video').replaceWith(embed(id, $('figcaption', clip)?.textContent.trim()));
     $('.clip-ph', clip)?.remove();
   });
 })();
