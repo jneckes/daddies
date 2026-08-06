@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE DADDIES — Your Dad Band’s Favorite Dad Band</title>
+  <meta name="description" content="The Daddies: your dad band’s favorite dad band. Built in Los Angeles on a dream. Recapturing the songs of your youth, recasting the songs of today. Now booking.">
+  <meta property="og:title" content="THE DADDIES">
+  <meta property="og:description" content="Your dad band’s favorite dad band. Built in Los Angeles on a dream. Now booking.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/band/og.jpg">
+  <meta name="theme-color" content="#17120E">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces-900-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    /* Pre-paint setup: no flash of the wrong universe. */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try { if (localStorage.getItem('daddies-dadmode') === '1') root.classList.add('dad-mode'); } catch (e) {}
+      var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var counted = false;
+      try { counted = sessionStorage.getItem('daddies-counted') === '1'; } catch (e) {}
+      if (!reduced && !counted && location.search.indexOf('static') === -1) root.classList.add('counting');
+    })();
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#tape">Skip to the good part</a>
+
+  <!-- ============ THE COUNT-IN ============ -->
+  <div id="countin" aria-hidden="true">
+    <div class="countin-num" id="countin-num">1</div>
+    <p class="countin-note">counted in at a responsible tempo</p>
+  </div>
+
+  <!-- ============ DAD MODE FURNITURE (hidden until the switch is flipped) ============ -->
+  <div class="dad-only dad-banner" aria-hidden="true">
+    🚧 WELCOME TO THE DADDIES OFFICIAL HOMEPAGE!!! THIS SITE IS UNDER CONSTRUCTION 🚧 BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 AT 800×600 🚧
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="wordmark" href="#top" aria-label="The Daddies — back to top">
+        THE DADDIES<span class="wordmark-star" aria-hidden="true">✶</span>
+      </a>
+      <nav class="nav-links" aria-label="Run of show">
+        <a href="#tape">The Tape</a>
+        <a href="#band">The Band</a>
+        <a href="#listen">Listen</a>
+        <a href="#setlists">Setlists</a>
+        <a class="nav-cta" href="#book">Book Us</a>
+      </nav>
+      <div class="nav-tools">
+        <button class="dadmode-toggle" id="dadmode-toggle" type="button" aria-pressed="false" title="You have been warned.">
+          <span class="dm-label">DAD MODE</span>
+          <span class="dm-switch" aria-hidden="true"><span class="dm-knob"></span></span>
+        </button>
+        <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Run of show, but vertical">
+      <a href="#tape"><em>01</em> The Tape</a>
+      <a href="#legend"><em>02</em> The Legend</a>
+      <a href="#band"><em>03</em> The Band</a>
+      <a href="#listen"><em>04</em> Listen</a>
+      <a href="#setlists"><em>05</em> Setlists</a>
+      <a href="#book"><em>06</em> Book Us</a>
+      <a href="#social"><em>07</em> The Group Chat</a>
+    </nav>
+    <p class="mobile-menu-foot">Built in Los Angeles. On a dream.</p>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="The Daddies">
+      <p class="hero-eyebrow mono">LOS ANGELES, CA&ensp;·&ensp;34.05°N 118.24°W&ensp;·&ensp;EST. ON A DREAM</p>
+
+      <h1 class="hero-title" aria-label="The Daddies">
+        <span class="t-line t-the" aria-hidden="true"><span>T</span><span>H</span><span>E</span></span>
+        <span class="t-line t-daddies" aria-hidden="true"><span>D</span><span>A</span><span>D</span><span>D</span><span>I</span><span>E</span><span>S</span></span>
+      </h1>
+
+      <p class="hero-scrawl serif">your dad band’s <span class="underline-flame">favorite</span> dad band</p>
+
+      <div class="hero-deck">
+        <p class="hero-sub">
+          Four dads. Two mommies. A rotating cast of front&nbsp;men with genuinely famous voices.
+          Recapturing the songs of your youth&nbsp;— and dragging the songs of today back to the
+          garage where they belong.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-flame" href="#book">Book The Daddies</a>
+          <a class="btn btn-ghost" href="#tape">▶&ensp;Watch the Pride Tape</a>
+        </div>
+        <p class="hero-badge mono">★ AS SEEN HEADLINING MILWAUKEE PRIDEFEST ★</p>
+      </div>
+
+      <!-- Spinning sticker -->
+      <div class="sticker" aria-hidden="true">
+        <div class="sticker-rays"></div>
+        <svg class="sticker-text" viewBox="0 0 200 200">
+          <defs><path id="ring" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"></path></defs>
+          <text><textPath href="#ring">ANYONE CAN BE A DADDY&nbsp;&nbsp;✶&nbsp;&nbsp;ANYONE CAN BE A DADDY&nbsp;&nbsp;✶&nbsp;&nbsp;</textPath></text>
+        </svg>
+        <span class="sticker-core">EST.<br>L.A.</span>
+      </div>
+
+      <p class="hero-scrollcue mono" aria-hidden="true">scroll, kiddo ↓</p>
+    </section>
+
+    <!-- Marquee: now booking -->
+    <div class="marquee mq-flame" aria-hidden="true">
+      <div class="mq-track">
+        <span>NOW BOOKING ✶ WEDDINGS ✶ FESTIVALS ✶ PRIDES ✶ BRAND PARTIES ✶ BIRTHDAYS ✶ DIVORCES (CELEBRATORY) ✶ YOUR BACKYARD ✶&nbsp;</span>
+        <span>NOW BOOKING ✶ WEDDINGS ✶ FESTIVALS ✶ PRIDES ✶ BRAND PARTIES ✶ BIRTHDAYS ✶ DIVORCES (CELEBRATORY) ✶ YOUR BACKYARD ✶&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ============ 01 / THE TAPE ============ -->
+    <section class="sec sec-ink" id="tape">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">01 / RUN OF SHOW</p>
+          <h2 class="sec-title">WE HEADLINED<br>PRIDE. <span class="serif accent-pink">yes, us.</span></h2>
+          <p class="sec-lede">
+            The Daddies backing <strong>Brian Justin Crum</strong>, headlining Milwaukee PrideFest,
+            in front of a very large number of people who did not expect dads to go this hard.
+          </p>
+        </header>
+
+        <figure class="feature-video rev" id="feature-video">
+          <video controls preload="metadata" playsinline poster="assets/img/band/milwaukee-poster.jpg">
+            <source src="assets/video/milwaukee-pride.mp4" type="video/mp4"
+              onerror="this.closest('.feature-video').classList.add('missing')">
+            Your browser doesn’t do video. Very dad of it.
+          </video>
+          <div class="video-ph" aria-hidden="true">
+            <p class="video-ph-big">THE MILWAUKEE TAPE</p>
+            <p class="video-ph-note mono">drop the headline set here →<br>assets/video/milwaukee-pride.mp4<br>(or paste a YouTube ID in js/main.js)</p>
+            <span class="video-ph-btn">▶</span>
+          </div>
+          <figcaption class="mono">MILWAUKEE PRIDEFEST — HEADLINE SET — FULL SEND</figcaption>
+        </figure>
+
+        <div class="clips">
+          <h3 class="clips-title rev"><span class="serif accent-pink">more</span> FROM THE VAULT <span class="mono clips-sub">(the vault is a garage)</span></h3>
+          <div class="clips-grid">
+            <figure class="clip rev" data-clip="0">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/video/clip-01.mp4" type="video/mp4" onerror="this.closest('.clip').classList.add('missing')">
+              </video>
+              <div class="clip-ph" aria-hidden="true"><span>▶</span><p class="mono">clip-01.mp4</p></div>
+              <figcaption>The key change incident</figcaption>
+            </figure>
+            <figure class="clip rev" data-clip="1">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/video/clip-02.mp4" type="video/mp4" onerror="this.closest('.clip').classList.add('missing')">
+              </video>
+              <div class="clip-ph" aria-hidden="true"><span>▶</span><p class="mono">clip-02.mp4</p></div>
+              <figcaption>Amy hits The Note</figcaption>
+            </figure>
+            <figure class="clip rev" data-clip="2">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/video/clip-03.mp4" type="video/mp4" onerror="this.closest('.clip').classList.add('missing')">
+              </video>
+              <div class="clip-ph" aria-hidden="true"><span>▶</span><p class="mono">clip-03.mp4</p></div>
+              <figcaption>Milwaukee loses it, respectfully</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 / THE LEGEND ============ -->
+    <section class="sec sec-paper" id="legend">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">02 / RUN OF SHOW</p>
+          <h2 class="sec-title">BUILT IN L.A.<br><span class="outline">ON A DREAM.</span></h2>
+        </header>
+
+        <div class="legend-grid">
+          <div class="legend-copy rev">
+            <p class="big-p">
+              Somewhere between school drop-off and a 9&nbsp;a.m. meeting, four dads looked at each
+              other and said: <em class="serif">we’ve still got it.</em> Nobody asked us to prove it.
+              We booked the gig anyway.
+            </p>
+            <p>
+              The Daddies are a Los Angeles institution (self-declared) with one mission:
+              <strong>recapture the songs of your youth, recast the songs of today,</strong> and leave
+              every dance floor slightly better parented than we found it. The lineup rotates. The
+              commitment doesn’t. Somebody always brings extra cables.
+            </p>
+          </div>
+          <blockquote class="legend-quote rev">
+            <p class="serif">“Dads are out here playing music. It’s sick.”</p>
+            <cite class="mono">— JOSH, FOUNDING DADDY</cite>
+          </blockquote>
+        </div>
+
+        <ul class="stat-strip rev" role="list">
+          <li><span class="stat-n">4</span><span class="stat-l mono">CORE DADDIES</span></li>
+          <li><span class="stat-n">2</span><span class="stat-l mono">MOMMIES</span></li>
+          <li><span class="stat-n">∞</span><span class="stat-l mono">BIG DADDIES</span></li>
+          <li><span class="stat-n">1</span><span class="stat-l mono">DREAM</span></li>
+        </ul>
+
+        <figure class="band-photo rev" data-ph="THE DADDIES">
+          <img src="assets/img/band/full-band.jpg" alt="The Daddies, the full spread" loading="lazy"
+            onerror="this.closest('.band-photo').classList.add('missing');this.remove()">
+          <figcaption class="ph-note mono">THE FULL SPREAD — drop a wide, high-res band shot here → assets/img/band/full-band.jpg</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Marquee: reviews -->
+    <div class="marquee mq-ink" aria-hidden="true">
+      <div class="mq-track mq-slow">
+        <span>“Finally, live music my husband agrees to.” — SOMEONE’S WIFE, SILVER LAKE&emsp;★★★★★&emsp;“They’re SO loud.” — A NEIGHBOR&emsp;★★★★★&emsp;“Dad, please.” — JOSH’S KIDS&emsp;★★★★★&emsp;“I cried during Robyn.” — GROWN MAN, MILWAUKEE&emsp;★★★★★&emsp;“Better than the band we almost booked.” — A BRIDE&emsp;★★★★★&emsp;</span>
+        <span>“Finally, live music my husband agrees to.” — SOMEONE’S WIFE, SILVER LAKE&emsp;★★★★★&emsp;“They’re SO loud.” — A NEIGHBOR&emsp;★★★★★&emsp;“Dad, please.” — JOSH’S KIDS&emsp;★★★★★&emsp;“I cried during Robyn.” — GROWN MAN, MILWAUKEE&emsp;★★★★★&emsp;“Better than the band we almost booked.” — A BRIDE&emsp;★★★★★&emsp;</span>
+      </div>
+    </div>
+
+    <!-- ============ 03 / THE BAND ============ -->
+    <section class="sec sec-paper" id="band">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">03 / RUN OF SHOW</p>
+          <h2 class="sec-title">THE <span class="serif accent-flame">personnel</span></h2>
+          <p class="sec-lede">A rotating cast of dads, mommies, and the occasional legitimate celebrity. Tap a card. Read the file.</p>
+        </header>
+
+        <!-- Core Daddies -->
+        <div class="crew-head rev">
+          <h3 class="crew-title">THE CORE DADDIES</h3>
+          <p class="crew-sub mono">THE DADS WHO PLAY THE THINGS</p>
+        </div>
+        <div class="crew-grid crew-daddies">
+          <article class="card rev" data-member="josh-guitar" style="--tilt:-1.2deg">
+            <figure class="photo" data-ph="J">
+              <img src="assets/img/daddies/josh-guitar.jpg" alt="Josh, guitar" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES DAD PHOTO<br>daddies/josh-guitar.jpg</figcaption>
+            </figure>
+            <p class="card-no mono">No. 01</p>
+            <h4 class="card-name">JOSH</h4>
+            <p class="card-role mono">GUITAR · FOUNDING DADDY</p>
+            <p class="card-line">Started the band. Will not stop talking about tone.</p>
+            <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+          </article>
+
+          <article class="card rev" data-member="josh-drums" style="--tilt:0.9deg">
+            <figure class="photo" data-ph="J">
+              <img src="assets/img/daddies/josh-drums.jpg" alt="Josh, drums" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES DAD PHOTO<br>daddies/josh-drums.jpg</figcaption>
+            </figure>
+            <p class="card-no mono">No. 02</p>
+            <h4 class="card-name">JOSH</h4>
+            <p class="card-role mono">DRUMS · THE OTHER JOSH</p>
+            <p class="card-line">Yes, another Josh. Counts to four professionally.</p>
+            <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+          </article>
+
+          <article class="card rev" data-member="alex" style="--tilt:-0.7deg">
+            <figure class="photo" data-ph="A">
+              <img src="assets/img/daddies/alex-bass.jpg" alt="Alex, bass" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES DAD PHOTO<br>daddies/alex-bass.jpg</figcaption>
+            </figure>
+            <p class="card-no mono">No. 03</p>
+            <h4 class="card-name">ALEX</h4>
+            <p class="card-role mono">BASS · THE LOW END</p>
+            <p class="card-line">Feels the pocket. Owns many pockets. (Cargo shorts.)</p>
+            <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+          </article>
+
+          <article class="card rev" data-member="seth" style="--tilt:1.1deg">
+            <figure class="photo" data-ph="S">
+              <img src="assets/img/daddies/seth-guitar.jpg" alt="Seth, guitar" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES DAD PHOTO<br>daddies/seth-guitar.jpg</figcaption>
+            </figure>
+            <p class="card-no mono">No. 04</p>
+            <h4 class="card-name">SETH</h4>
+            <p class="card-role mono">GUITAR · MORE GUITAR</p>
+            <p class="card-line">Also guitar. We talked about it. It’s fine.</p>
+            <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+          </article>
+
+        </div>
+
+        <!-- The Mommies -->
+        <div class="crew-head rev" id="mommies">
+          <h3 class="crew-title accent-pink-text">THE MOMMIES</h3>
+          <p class="crew-sub mono">THE REASON WE SOUND GOOD</p>
+        </div>
+        <div class="crew-grid crew-mommies">
+          <article class="card card-wide card-pink rev" data-member="amy" style="--tilt:-0.6deg">
+            <figure class="photo" data-ph="A">
+              <img src="assets/img/mommies/amy.jpg" alt="Amy, vocals" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES MOMMY PHOTO<br>mommies/amy.jpg</figcaption>
+            </figure>
+            <div class="card-body">
+              <p class="card-no mono">No. 05</p>
+              <h4 class="card-name">AMY</h4>
+              <p class="card-role mono">VOCALS · THE VOICE OF REASON</p>
+              <p class="card-line">Hits the notes the daddies point at. All of them.</p>
+              <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+            </div>
+          </article>
+
+          <article class="card card-wide card-pink rev" data-member="erin" style="--tilt:0.8deg">
+            <figure class="photo" data-ph="E">
+              <img src="assets/img/mommies/erin.jpg" alt="Erin, vocals" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES MOMMY PHOTO<br>mommies/erin.jpg</figcaption>
+            </figure>
+            <div class="card-body">
+              <p class="card-no mono">No. 06</p>
+              <h4 class="card-name">ERIN</h4>
+              <p class="card-role mono">VOCALS · CROWD’S FAVORITE PARENT</p>
+              <p class="card-line">Harmonies, hype, and the audacity.</p>
+              <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- The Big Daddies -->
+      <div class="bigdaddies" id="bigdaddies">
+        <div class="wrap">
+          <div class="crew-head rev">
+            <h3 class="crew-title gold-text">THE BIG DADDIES</h3>
+            <p class="crew-sub mono">THE FRONT MEN. THE MAIN EVENT. THE REASON YOUR AUNT IS SCREAMING.</p>
+          </div>
+          <p class="bd-lede rev">
+            The Daddies back a rotating cast of celebrity and celebrity-adjacent voices.
+            You bring the star (or borrow ours) — we bring the wall of sound behind them.
+          </p>
+
+          <article class="bd-feature card rev" data-member="brian">
+            <figure class="photo" data-ph="BJC">
+              <img src="assets/img/bigdaddies/brian-justin-crum.jpg" alt="Brian Justin Crum, front man" loading="lazy"
+                onerror="this.closest('.photo').classList.add('missing');this.remove()">
+              <figcaption class="ph-note mono">HIGH-RES STAR PHOTO<br>bigdaddies/brian-justin-crum.jpg</figcaption>
+            </figure>
+            <div class="bd-body">
+              <p class="card-no mono gold-text">BIG DADDY No. 001</p>
+              <h4 class="bd-name">BRIAN<br>JUSTIN<br>CRUM</h4>
+              <p class="card-role mono">FRONT MAN · THE VOICE</p>
+              <p class="bd-line">
+                Broadway. <em>America’s Got Talent.</em> Global stages. Now fronting your dad band’s
+                favorite dad band — like the night he headlined Milwaukee PrideFest with us and
+                suddenly we were all better looking.
+              </p>
+              <button class="card-open" type="button">OPEN DOSSIER <span aria-hidden="true">+</span></button>
+            </div>
+          </article>
+
+          <article class="bd-open rev">
+            <p class="bd-open-no mono gold-text">BIG DADDY No. 002 — OPEN</p>
+            <h4 class="bd-open-title">THIS COULD<br>BE <span class="serif gold-text">you.</span></h4>
+            <p class="bd-open-line">Are you a celebrity? A pseudo-celebrity? A voice with a dream and reasonable availability? The front mic is warm.</p>
+            <a class="btn btn-gold" href="#book">Apply to be a Big Daddy</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 / LISTEN ============ -->
+    <section class="sec sec-ink" id="listen">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">04 / RUN OF SHOW</p>
+          <h2 class="sec-title">THE <span class="serif accent-blue">evidence</span></h2>
+          <p class="sec-lede">Sound clips. Recorded live, mixed by a dad, approved by at least one teenager.</p>
+        </header>
+
+        <div class="tracks rev" id="tracks">
+          <div class="track" data-src="assets/audio/01-dont-stop-believin.mp3">
+            <button class="tr-play" type="button" aria-label="Play Don’t Stop Believin’"><span class="tr-icon">▶</span></button>
+            <div class="tr-meta">
+              <p class="tr-title mono">DON’T STOP BELIEVIN’ <span class="tr-tag">LIVE TAPE</span></p>
+              <p class="tr-sub mono">the anthem. contractually obligated.</p>
+              <div class="tr-bar" role="presentation"><div class="tr-fill"></div></div>
+            </div>
+            <span class="tr-time mono">--:--</span>
+          </div>
+          <div class="track" data-src="assets/audio/02-pink-pony-club.mp3">
+            <button class="tr-play" type="button" aria-label="Play Pink Pony Club"><span class="tr-icon">▶</span></button>
+            <div class="tr-meta">
+              <p class="tr-title mono">PINK PONY CLUB <span class="tr-tag">SOUNDBOARD</span></p>
+              <p class="tr-sub mono">milwaukee soundboard. dedicated to l.a.</p>
+              <div class="tr-bar" role="presentation"><div class="tr-fill"></div></div>
+            </div>
+            <span class="tr-time mono">--:--</span>
+          </div>
+          <div class="track" data-src="assets/audio/03-total-eclipse.mp3">
+            <button class="tr-play" type="button" aria-label="Play Total Eclipse of the Heart"><span class="tr-icon">▶</span></button>
+            <div class="tr-meta">
+              <p class="tr-title mono">TOTAL ECLIPSE OF THE HEART <span class="tr-tag">ONE TAKE</span></p>
+              <p class="tr-sub mono">rehearsal. one take. several feelings.</p>
+              <div class="tr-bar" role="presentation"><div class="tr-fill"></div></div>
+            </div>
+            <span class="tr-time mono">--:--</span>
+          </div>
+          <div class="track" data-src="assets/audio/04-espresso.mp3">
+            <button class="tr-play" type="button" aria-label="Play Espresso"><span class="tr-icon">▶</span></button>
+            <div class="tr-meta">
+              <p class="tr-title mono">ESPRESSO <span class="tr-tag">RECAST</span></p>
+              <p class="tr-sub mono">the dad recast. decaf after 2 p.m.</p>
+              <div class="tr-bar" role="presentation"><div class="tr-fill"></div></div>
+            </div>
+            <span class="tr-time mono">--:--</span>
+          </div>
+        </div>
+        <p class="tracks-note mono rev">TAPE PENDING? drop mp3s in assets/audio/ with the filenames above. the players wire themselves up.</p>
+      </div>
+    </section>
+
+    <!-- ============ 05 / SETLISTS ============ -->
+    <section class="sec sec-paper" id="setlists">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">05 / RUN OF SHOW</p>
+          <h2 class="sec-title">SAMPLE <span class="serif accent-flame">setlists</span></h2>
+          <p class="sec-lede">Three ways a night with The Daddies can go. Requests honored. Slow songs deployed strategically.</p>
+        </header>
+
+        <div class="setlist-tabs rev" role="tablist" aria-label="Sample setlists">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="set-a" id="tab-a" type="button">SET A<span class="tab-sub mono">THE CROWD PLEASER</span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="set-b" id="tab-b" type="button">SET B<span class="tab-sub mono">THE SWEAT SET</span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="set-c" id="tab-c" type="button">SET C<span class="tab-sub mono">TODAY, RECAST</span></button>
+        </div>
+
+        <div class="sheet rev">
+          <span class="tape tape-l" aria-hidden="true"></span>
+          <span class="tape tape-r" aria-hidden="true"></span>
+
+          <div class="sheet-panel" id="set-a" role="tabpanel" aria-labelledby="tab-a">
+            <p class="sheet-head mono">THE DADDIES — SET A — “THE CROWD PLEASER” — weddings, birthdays, retirements (early)</p>
+            <ol class="sheet-list">
+              <li><b>SEPTEMBER</b> — Earth, Wind &amp; Fire <i class="serif">horns via Brandon’s left hand</i></li>
+              <li><b>I WANNA DANCE WITH SOMEBODY</b> — Whitney Houston <i class="serif">Amy’s show, we just live here</i></li>
+              <li><b>TAKE ON ME</b> — a-ha <i class="serif">the note: attempted, respectfully</i></li>
+              <li><b>LIVIN’ ON A PRAYER</b> — Bon Jovi <i class="serif">dad-drop key change</i></li>
+              <li><b>DANCING QUEEN</b> — ABBA</li>
+              <li><b>SHUT UP AND DANCE</b> — Walk the Moon</li>
+              <li><b>TOTAL ECLIPSE OF THE HEART</b> — Bonnie Tyler <i class="serif">turn around…</i></li>
+              <li><b>HEY YA!</b> — OutKast <i class="serif">polaroid optional</i></li>
+              <li><b>DON’T STOP BELIEVIN’</b> — Journey <i class="serif">contractually obligated</i></li>
+              <li><b>MR. BRIGHTSIDE</b> — The Killers <i class="serif">the closer. always the closer.</i></li>
+            </ol>
+          </div>
+
+          <div class="sheet-panel" id="set-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+            <p class="sheet-head mono">THE DADDIES — SET B — “THE SWEAT SET” — festivals, prides, main stages</p>
+            <ol class="sheet-list">
+              <li><b>BORN THIS WAY</b> — Lady Gaga</li>
+              <li><b>IT’S RAINING MEN</b> — The Weather Girls <i class="serif">hallelujah</i></li>
+              <li><b>DANCING ON MY OWN</b> — Robyn <i class="serif">crying is allowed</i></li>
+              <li><b>BELIEVE</b> — Cher <i class="serif">yes, we have the pedal</i></li>
+              <li><b>PINK PONY CLUB</b> — Chappell Roan <i class="serif">dedicated to los angeles</i></li>
+              <li><b>I WILL SURVIVE</b> — Gloria Gaynor</li>
+              <li><b>PADAM PADAM</b> — Kylie Minogue</li>
+              <li><b>ABOUT DAMN TIME</b> — Lizzo</li>
+              <li><b>VOGUE</b> — Madonna <i class="serif">strike a pose</i></li>
+              <li><b>DON’T STOP ME NOW</b> — Queen <i class="serif">nobody stops the daddies</i></li>
+            </ol>
+          </div>
+
+          <div class="sheet-panel" id="set-c" role="tabpanel" aria-labelledby="tab-c" hidden>
+            <p class="sheet-head mono">THE DADDIES — SET C — “SONGS OF TODAY, RECAST” — in which the daddies prove they still got it</p>
+            <ol class="sheet-list">
+              <li><b>ESPRESSO</b> — Sabrina Carpenter <i class="serif">decaf after 2 p.m.</i></li>
+              <li><b>GOOD 4 U</b> — Olivia Rodrigo <i class="serif">channeling carpool rage</i></li>
+              <li><b>FLOWERS</b> — Miley Cyrus <i class="serif">dads CAN buy themselves flowers</i></li>
+              <li><b>AS IT WAS</b> — Harry Styles</li>
+              <li><b>LEVITATING</b> — Dua Lipa</li>
+              <li><b>ANTI-HERO</b> — Taylor Swift <i class="serif">it’s us. hi.</i></li>
+              <li><b>A BAR SONG (TIPSY)</b> — Shaboozey</li>
+              <li><b>BEAUTIFUL THINGS</b> — Benson Boone <i class="serif">no backflip. knees.</i></li>
+              <li><b>GOLDEN</b> — HUNTR/X <i class="serif">yes, the kids showed us</i></li>
+              <li><b>GOOD LUCK, BABE!</b> — Chappell Roan <i class="serif">the bridge is a group effort</i></li>
+            </ol>
+          </div>
+
+          <p class="sheet-foot mono">* all sets subject to knee availability</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 / BOOK ============ -->
+    <section class="sec sec-flame" id="book">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">06 / RUN OF SHOW</p>
+          <h2 class="sec-title">BOOK THE<br>DADDIES<span class="serif">, now.</span></h2>
+          <p class="sec-lede">
+            We book really cool gigs. Festivals. Weddings. Prides. Brand parties. Birthdays.
+            Divorce parties (celebratory). Your backyard, if the vibes are right.
+          </p>
+        </header>
+
+        <div class="book-grid">
+          <div class="book-info rev">
+            <ul class="book-list" role="list">
+              <li>A full band that shows up early. <b>Always.</b></li>
+              <li>A setlist tuned to your crowd, your decade, your chaos.</li>
+              <li>Front-person options up to and including <b>the genuinely famous.</b></li>
+              <li>Festival-proven. Wedding-tested. Neighbor-disapproved.</li>
+            </ul>
+
+            <aside class="ticket" aria-hidden="true">
+              <div class="ticket-main">
+                <p class="ticket-title">THE DADDIES</p>
+                <p class="ticket-line mono">ADMIT: EVERYONE</p>
+                <p class="ticket-line mono">ROW: DANCE FLOOR&ensp;·&ensp;SEAT: NO</p>
+              </div>
+              <div class="ticket-stub">
+                <p class="mono">GOOD FOR<br>ONE (1)<br>GREAT<br>NIGHT</p>
+              </div>
+            </aside>
+
+            <p class="book-direct mono">
+              allergic to forms? →
+              <a href="mailto:book@thedaddiesband.com">book@thedaddiesband.com</a><br>
+              we reply faster than your dad texts back. so: same day.
+            </p>
+          </div>
+
+          <form class="book-form rev" id="book-form">
+            <div class="ff">
+              <label for="bf-name" class="mono">YOUR NAME</label>
+              <input id="bf-name" name="name" type="text" required autocomplete="name" placeholder="Future friend of the band">
+            </div>
+            <div class="ff">
+              <label for="bf-email" class="mono">EMAIL</label>
+              <input id="bf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="ff-row">
+              <div class="ff">
+                <label for="bf-date" class="mono">EVENT DATE</label>
+                <input id="bf-date" name="date" type="date">
+              </div>
+              <div class="ff">
+                <label for="bf-type" class="mono">EVENT TYPE</label>
+                <select id="bf-type" name="type">
+                  <option>Wedding</option>
+                  <option>Festival</option>
+                  <option>Pride</option>
+                  <option>Corporate (fun kind)</option>
+                  <option>Birthday</option>
+                  <option>Divorce (celebratory)</option>
+                  <option>Backyard</option>
+                  <option>Other / it’s complicated</option>
+                </select>
+              </div>
+            </div>
+            <div class="ff">
+              <label for="bf-msg" class="mono">TELL US EVERYTHING</label>
+              <textarea id="bf-msg" name="msg" rows="5" placeholder="Where, when, how many people, and how loud are we legally allowed to be?"></textarea>
+            </div>
+            <button class="btn btn-ink" type="submit">SEND THE BAT SIGNAL →</button>
+            <p class="form-note mono">opens your email app. like the old days.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ANYONE CAN BE A DADDY ============ -->
+    <section class="sec sec-paper sec-anyone" id="anyone">
+      <div class="wrap rev">
+        <p class="anyone-big serif">Anyone can be<br>a daddy.</p>
+        <p class="anyone-sub">
+          You don’t need kids. You don’t need the minivan. You need the spirit:
+          <b>show up early, bring extra cables, believe in the encore.</b>
+        </p>
+        <a class="btn btn-flame" href="mailto:book@thedaddiesband.com?subject=I%20want%20to%20be%20a%20Daddy">Audition for the band</a>
+      </div>
+    </section>
+
+    <!-- ============ 07 / SOCIAL ============ -->
+    <section class="sec sec-ink" id="social">
+      <div class="wrap">
+        <header class="sec-head rev">
+          <p class="sec-no mono">07 / RUN OF SHOW</p>
+          <h2 class="sec-title">THE GROUP<br><span class="outline-light">CHAT.</span></h2>
+          <p class="sec-lede">We post. We reply. We overuse the fire emoji.</p>
+        </header>
+
+        <nav class="socials rev" aria-label="The Daddies on social media">
+          <a class="social" href="https://instagram.com/thedaddiesband" target="_blank" rel="noopener">
+            <span class="social-name">INSTAGRAM</span>
+            <span class="social-handle mono">@thedaddiesband</span>
+            <span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social" href="https://tiktok.com/@thedaddiesband" target="_blank" rel="noopener">
+            <span class="social-name">TIKTOK</span>
+            <span class="social-handle mono">@thedaddiesband</span>
+            <span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social" href="https://youtube.com/@thedaddiesband" target="_blank" rel="noopener">
+            <span class="social-name">YOUTUBE</span>
+            <span class="social-handle mono">@thedaddiesband</span>
+            <span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social" href="https://open.spotify.com" target="_blank" rel="noopener">
+            <span class="social-name">SPOTIFY</span>
+            <span class="social-handle mono">the daddies (soon)</span>
+            <span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+
+        <div class="social-extras rev">
+          <p class="social-tag">Tag <b>@thedaddiesband</b> at your event and we will repost you. <span class="serif accent-pink">that’s a threat.</span></p>
+          <a class="btn btn-ghost" href="mailto:book@thedaddiesband.com?subject=Add%20me%20to%20the%20phone%20tree">JOIN THE PHONE TREE — one email a month, zero chain letters</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer-mark">THE DADDIES<span aria-hidden="true">✶</span></p>
+      <nav class="footer-links mono" aria-label="Footer">
+        <a href="#tape">The Tape</a>
+        <a href="#band">The Band</a>
+        <a href="#listen">Listen</a>
+        <a href="#setlists">Setlists</a>
+        <a href="#book">Book</a>
+        <a href="#social">Social</a>
+      </nav>
+      <p class="footer-line mono">
+        BUILT IN LOS ANGELES ON A DREAM · 34.05°N, 118.24°W ·
+        © <span id="year">2026</span> THE DADDIES · ALL RIGHTS RESERVED · BEDTIME AT 10:00 PM SHARP
+      </p>
+      <p class="footer-line mono dad-only">You are visitor No. 000042 · <span class="blink">NEW!</span> Sign our guestbook · Made with Microsoft FrontPage™ (emotionally)</p>
+    </div>
+  </footer>
+
+  <!-- ============ DOSSIER DIALOG ============ -->
+  <dialog class="dossier" id="dossier" aria-labelledby="dossier-name">
+    <div class="dossier-inner">
+      <button class="dossier-close" id="dossier-close" type="button" aria-label="Close dossier">×</button>
+      <p class="dossier-stamp mono" id="dossier-stamp">DADDY DOSSIER — No. 01</p>
+      <div class="dossier-grid">
+        <figure class="photo" id="dossier-photo" data-ph="">
+          <figcaption class="ph-note mono">HIGH-RES PHOTO PENDING</figcaption>
+        </figure>
+        <div class="dossier-body">
+          <h3 class="dossier-name" id="dossier-name">NAME</h3>
+          <p class="dossier-role mono" id="dossier-role">ROLE</p>
+          <dl class="dossier-stats" id="dossier-stats"></dl>
+          <p class="dossier-bio" id="dossier-bio"></p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ============ CLIPPY (dad mode only) ============ -->
+  <div class="dad-only clippy" id="clippy" role="note">
+    <button class="clippy-close" id="clippy-close" type="button" aria-label="Dismiss assistant">×</button>
+    <p>📎 It looks like you’re trying to <b>book a band.</b> Would you like help?</p>
+    <div class="clippy-btns">
+      <a href="#book" class="clippy-btn">Yes</a>
+      <a href="#book" class="clippy-btn">Also yes</a>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
