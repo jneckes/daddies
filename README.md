@@ -57,6 +57,9 @@ Prefer YouTube? Paste video IDs into `CONFIG.youtube` at the top of
 - `assets/audio/03-total-eclipse.mp3`
 - `assets/audio/04-espresso.mp3`
 
+`.wav` works too — same filenames with a `.wav` extension; each player tries
+the `.mp3` first, then the `.wav`. (mp3 loads much faster for visitors.)
+
 Want different tracks? Edit the four `.track` blocks in `index.html`
 (titles + `data-src` paths).
 

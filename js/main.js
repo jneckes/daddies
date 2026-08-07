@@ -400,13 +400,22 @@ $$('.hero-title .t-line span').forEach((el, i) => {
     const sub = $('.tr-sub', row);
     const audio = new Audio();
     audio.preload = 'metadata';
-    audio.src = src;
 
+    // Tapes arrive as .mp3 or .wav — try each in turn, pend only when both miss.
+    const takes = [src, src.replace(/\.mp3$/, '.wav')];
+    let take = 0;
     audio.addEventListener('error', () => {
+      take += 1;
+      if (take < takes.length) {
+        audio.src = takes[take];
+        audio.load();
+        return;
+      }
       row.classList.add('pending');
       btn.disabled = true;
       sub.textContent = 'TAPE PENDING';
     });
+    audio.src = takes[0];
     audio.addEventListener('loadedmetadata', () => { time.textContent = fmt(audio.duration); });
     audio.addEventListener('timeupdate', () => {
       fill.style.width = `${(audio.currentTime / audio.duration) * 100 || 0}%`;
