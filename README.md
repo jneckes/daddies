@@ -52,15 +52,16 @@ Prefer YouTube? Paste video IDs into `CONFIG.youtube` at the top of
 
 ### Sound clips
 
-- `assets/audio/01-dont-stop-believin.mp3`
-- `assets/audio/02-pink-pony-club.mp3`
-- `assets/audio/03-total-eclipse.mp3`
-- `assets/audio/04-espresso.mp3`
+- `assets/audio/01-miss-ohio.mp3`
+- `assets/audio/02-sweet-child-o-mine.mp3`
+- `assets/audio/03-landslide.mp3`
+- `assets/audio/04-wicked-game.mp3`
+- `assets/audio/05-lights.mp3`
 
 `.wav` works too — same filenames with a `.wav` extension; each player tries
 the `.mp3` first, then the `.wav`. (mp3 loads much faster for visitors.)
 
-Want different tracks? Edit the four `.track` blocks in `index.html`
+Want different tracks? Edit the `.track` blocks in `index.html`
 (titles + `data-src` paths).
 
 ## Things to update before the world sees it
