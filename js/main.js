@@ -405,7 +405,7 @@ $$('.hero-title .t-line span').forEach((el, i) => {
     audio.addEventListener('error', () => {
       row.classList.add('pending');
       btn.disabled = true;
-      sub.textContent = `TAPE PENDING → ${src}`;
+      sub.textContent = 'TAPE PENDING';
     });
     audio.addEventListener('loadedmetadata', () => { time.textContent = fmt(audio.duration); });
     audio.addEventListener('timeupdate', () => {
